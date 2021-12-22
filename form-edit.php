@@ -8,7 +8,7 @@ if( !isset($_GET['id']) )
     header('Location: list-siswa.php');
 }
 
-//ambil id dari query string
+// ambil id dari query string
 $id = $_GET['id'];
 
 // buat query untuk ambil data dari database
@@ -16,7 +16,7 @@ $sql = "SELECT * FROM calon_siswa WHERE id=$id";
 $query = mysqli_query($db, $sql);
 $siswa = mysqli_fetch_assoc($query);
 
-// jika data yang di-edit tidak ditemukan
+// jika data yang diedit tidak ditemukan
 if( mysqli_num_rows($query) < 1 )
 {
     die("data tidak ditemukan...");
@@ -92,8 +92,10 @@ if( mysqli_num_rows($query) < 1 )
                             <select name="agama">
                                 <option <?php echo ($agama == 'Islam') ? "selected": "" ?>>Islam</option>
                                 <option <?php echo ($agama == 'Kristen') ? "selected": "" ?>>Kristen</option>
+                                <option <?php echo ($agama == 'Katolik') ? "selected": "" ?>>Katolik</option>
                                 <option <?php echo ($agama == 'Hindu') ? "selected": "" ?>>Hindu</option>
                                 <option <?php echo ($agama == 'Budha') ? "selected": "" ?>>Budha</option>
+                                <option <?php echo ($agama == 'Konghuchu') ? "selected": "" ?>>Konghuchu</option>
                                 <option <?php echo ($agama == 'Atheis') ? "selected": "" ?>>Atheis</option>
                             </select>
                         </p>
